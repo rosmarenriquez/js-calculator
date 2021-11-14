@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" href="assign07.css"/>
+</head>
+
+<!--Body starts here-->
+<body>
+
+<h1>Mortgage Calculator</h1>
+<p>
+    Welcome to the Mortgage Calculator. Please enter the correct values, so you can have the correct result.
+</p>
+    <!--FORM-->
+    <form action="/">
+        <div>
+            <label>APR%: </label>
+            <input type="text" id="apr" name="APR" placeholder="Insert APR here" required/>
+        </div>
+            
+        <div>
+            <label>Loan Term: </label>
+            <input type="text" id="term" name="TERM" placeholder="Insert Loan Term here" required/> 
+        </div>
+  
+        <div>
+            <label>Loan Amount: </label>
+            <input type="text" id="amount" name="AMOUNT" placeholder="Insert Loan Amount here" required/>
+        </div>
+
+        <div>
+            <label>Monthly Payment: </label>
+            <input type="text" id="payment" name="MONTH PAY" readonly/>
+        </div>
+
+        <div>
+            <h2 id="error">-------</h2>
+        </div>
+        
+        <input type="button" id="calculate" value="Calculate" onclick="validateData()"/>
+        <input type="reset" id="clear" value="Clear" onclick="blank()"/>
+    
+    </form>
+    <!--END OF FORM-->
+
+    <!--JAVASCRIPT-->
+    <script>
+        function getValues(){
+            var term = document.getElementById("term").value;
+            var apr = document.getElementById("apr").value;
+            var amt = document.getElementById("amount").value;
+            apr /= 1200;
+            term *= 12;
+            var mPmt = amt*(apr * Math.pow((1 + apr), term))/(Math.pow((1 + apr), term) -1);
+            document.getElementById("payment").value = "$" + mPmt.toFixed(2);
+        };
+
+        function blank(){
+            var advice = document.getElementById('payment').value;
+            advice.innerHTML = "";
+            var advice2 = document.getElementById('error');
+            advice2.innerHTML = "";
+        }
+
+        function validateData(){
+            if(apr.value == "" && term.value == "" && amount.value == ""){
+            document.getElementById("error").innerHTML = "Please, fill out the form";
+            document.getElementById("apr").focus();
+            return false;
+         } 
+           
+           else if(apr.value == "" || apr.value > 25 || apr.value < 0){
+           document.getElementById("apr").placeholder = 'Invalid data';
+           document.getElementById("apr").focus();
+           return false;
+         }
+
+           else if(term.value == "" || term.value > 40 || term.value < 0){
+           document.getElementById("term").placeholder = 'Invalid data';
+           document.getElementById("term").focus();
+           return false;
+         }
+
+           else if(amount.value == ""){
+           document.getElementById("amount").placeholder = 'Invalid data';
+           document.getElementById("amount").focus();
+           return false;
+         }
+           else{
+           blank();
+           return getValues();
+         }
+        }
+
+    </script>
+<footer> 
+    &copy; 2021 | Rosmar Enriquez | CS 213 Web Engineering
+</footer>
+<!--Body ends here-->
+</body>
+</html>

@@ -1,0 +1,129 @@
+body{
+    background-color: brown;
+}
+
+h1, p {
+    color: white;
+    margin: 0 auto;
+    width: 500px;
+    padding: 1em;
+}
+
+
+form {
+    /* Center the form on the page */
+    margin: 0 auto;
+    width: 500px;
+    /* Form outline */
+    padding: 1em;
+    border: 3px solid rgb(209, 255, 41);
+    border-radius: 1em;
+    background-color: aquamarine;
+}
+
+form div{
+    padding: 1em;
+}
+
+:placeholder-shown{
+    background-color: rgb(255, 253, 127);
+    font-family: cursive;
+}
+
+
+input:invalid{
+    border:2px solid red;
+}
+
+input:valid{
+    border:2px solid green;
+}
+
+footer {
+    background-color: #CDEFFF; 
+    padding: 1em;
+}
+
+
+input[type=button] {
+    width: 140px;
+ height: 45px;
+ font-size: 23px;
+ cursor: pointer;
+ border: 3px solid black;
+ outline: none;
+ background: transparent;
+ color: rgb(0, 0, 0);
+ font-family: 'Times New Roman', Times, serif;
+ font-weight: 700;
+ position: relative;
+ transition: all 0.5s;
+ z-index: 1;
+}
+
+input[type=button]::before{
+    content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 5px;
+ height: 100%;
+ background-color: white;
+ z-index: -1;
+ transition: all 0.5s;
+}
+
+input[type=button]:hover::before {
+    width: 100%;
+   }
+   
+   input[type=button]:hover {
+    color: rgb(255, 247, 247);
+   }
+   
+   input[type=button]:active:before {
+    background: #b9b9b9;
+   }
+
+
+
+   input[type=reset] {
+    width: 140px;
+ height: 45px;
+ font-size: 23px;
+ cursor: pointer;
+ border: 3px solid black;
+ outline: none;
+ background: transparent;
+ color: rgb(0, 0, 0);
+ font-family: 'Times New Roman', Times, serif;
+ font-weight: 700;
+ position: relative;
+ transition: all 0.5s;
+ z-index: 1;
+}
+
+input[type=reset]::before{
+    content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 5px;
+ height: 100%;
+ background-color: white;
+ z-index: -1;
+ transition: all 0.5s;
+}
+
+input[type=reset]:hover::before {
+    width: 100%;
+   }
+   
+   input[type=reset]:hover {
+    color: rgb(255, 247, 247);
+   }
+   
+   input[type=reset]:active:before {
+    background: #b9b9b9;
+   }
+
